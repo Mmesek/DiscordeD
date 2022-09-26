@@ -1,0 +1,40 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug",
+            "type": "gdb",
+            "request": "launch",
+            "preLaunchTask": "Build with DMD",
+            "cwd": "${workspaceRoot}",
+            "target": "${workspaceRoot}/bin/debug/dmd/${workspaceFolderBasename}"
+        },
+        {
+            "name": "Debug (Windows)",
+            "type": "cppvsdbg",
+            "preLaunchTask": "Build with DMD",
+            "request": "launch",
+            "program": "${workspaceRoot}/bin/debug/dmd/${workspaceFolderBasename}",
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "console": "integratedTerminal",
+        },
+        {
+            "name": "Launch Release (Windows)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/bin/${workspaceFolderBasename}",
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": "DMD: Release"
+        },
+        {
+            "name": "Launch (Current File)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "args": [ "${file}" ],
+            "program": "rdmd",
+            "cwd": "${workspaceRoot}",
+            "console": "integratedTerminal"
+        }
+    ]
+}

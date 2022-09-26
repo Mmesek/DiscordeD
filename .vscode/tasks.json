@@ -1,0 +1,151 @@
+{
+    "version": "2.0.0",
+    "presentation": {
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "close": true,
+    },
+    "tasks": [
+        {
+            "type": "shell",
+            "group": "build",
+            "label": "Build with DMD",
+            "command": "dmd",
+            "args": [
+                "-i", "${file}",
+                "-I=vendor",
+                "-version=Debug",
+                "-m64",
+                "-debug",
+                "-wi",
+                "-g",
+                "-gf",
+                "-gs",
+                "-gx",
+                "-od=bin/build/debug/dmd",
+                "-of=${workspaceFolder}/bin/debug/dmd/${workspaceFolderBasename}"
+            ],
+            "problemMatcher": [ "$dmd" ]
+        },
+        {
+            "label": "Profiler",
+            "type": "shell",
+            "command": "dmd",
+            "args": [
+                "-i", "${file}",
+                "-I=vendor",
+                "-profile"
+            ],
+            "problemMatcher": [ "$dmd" ]
+        },
+        {
+            "label": "DMD: Unittests",
+            "type": "shell",
+            "group": "test",
+            "command": "dmd",
+            "args": [
+                "-i", "${file}",
+                "-I=vendor",
+                "-cov",
+                "-unittest",
+                "-wi",
+                "-main"
+            ],
+            "problemMatcher": [ "$dmd" ]
+        },
+        {
+            "label": "DMD: Generate Documentation",
+            "type": "shell",
+            "command": "dmd",
+            "args": [
+                "-i", "${file}",
+                "-I=vendor",
+                "-D",
+                "-Dd=docs",
+                "-o-"
+            ],
+            "problemMatcher": [ "$dmd" ]
+        },
+        {
+            "label": "DMD: Generate Static Library",
+            "type": "shell",
+            "command": "dmd",
+            "args": [
+                "-i", "${file}",
+                "-I=vendor",
+                "-lib",
+                "-o-",
+                "-m64"
+            ],
+            "problemMatcher": [ "$dmd" ]
+        },
+        {
+            "label": "DMD: Generate Dynamic Library",
+            "type": "shell",
+            "command": "dmd",
+            "args": [
+                "-i", "${file}",
+                "-I=vendor",
+                "-c",
+                "-shared",
+                "-o-",
+                "-m64"
+            ],
+            "problemMatcher": [ "$dmd" ]
+        },
+        {
+            "label": "DMD: Generate interface",
+            "type": "shell",
+            "command": "dmd",
+            "args": [
+                "-i", "${file}",
+                "-I=vendor",
+                "-H",
+                "-o-"
+            ],
+            "problemMatcher": [ "$dmd" ]
+        },
+        {
+            "label": "DMD: Release",
+            "type": "shell",
+            "command": "dmd",
+            "group": "build",
+            "args": [
+                "-i", "${file}",
+                "-I=vendor",
+                "-od=bin/build/release/dmd",
+                "-of=${workspaceFolder}/bin/release/${workspaceFolderBasename}",
+                "-version=Release",
+                "-m64",
+                "-O",
+                "-release",
+                "-inline",
+                "-boundscheck=off",
+                "-wi"
+            ],
+            "problemMatcher": [ "$dmd" ]
+        },
+        {
+            "label": "LDC: Release",
+            "type": "shell",
+            "group": "build",
+            "command": "ldmd2",
+            "args": [
+                "-i", "${file}",
+                "-I=vendor",
+                "-od=bin/build/release/ldc",
+                "-of=${workspaceFolder}/bin/release/${workspaceFolderBasename}",
+                "-version=Release",
+                "-m64",
+                "-O",
+                "-release",
+                "-inline",
+                "-boundscheck=off",
+                "-wi"
+            ],
+            "problemMatcher": [ "$dmd" ]
+        }
+    ]
+}
