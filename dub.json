@@ -1,0 +1,13 @@
+{
+	"authors": [
+		"Mmesek"
+	],
+	"copyright": "Copyright © 2022, Mmesek",
+	"dependencies": {
+		"vibe-d": "~>0.9.5"
+	},
+	"description": "Discord API Wrapper",
+	"license": "proprietary",
+	"name": "discorded",
+	"targetPath": "./bin"
+}

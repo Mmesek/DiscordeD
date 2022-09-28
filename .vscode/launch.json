@@ -5,14 +5,14 @@
             "name": "Debug",
             "type": "gdb",
             "request": "launch",
-            "preLaunchTask": "Build with DMD",
+            "preLaunchTask": "dub build",
             "cwd": "${workspaceRoot}",
             "target": "${workspaceRoot}/bin/debug/dmd/${workspaceFolderBasename}"
         },
         {
             "name": "Debug (Windows)",
             "type": "cppvsdbg",
-            "preLaunchTask": "Build with DMD",
+            "preLaunchTask": "dub build",
             "request": "launch",
             "program": "${workspaceRoot}/bin/debug/dmd/${workspaceFolderBasename}",
             "stopAtEntry": false,
